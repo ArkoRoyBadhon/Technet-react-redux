@@ -27,11 +27,11 @@ export default function Cart() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Button variant="ghost">
+        <div>
           <HiOutlineShoppingCart size="25" />
-        </Button>
+        </div>
       </SheetTrigger>
-      <SheetContent className="overflow-auto relative">
+      <SheetContent className="overflow-auto relative w-full">
         <SheetHeader>
           <SheetTitle>Cart</SheetTitle>
           <h1>Total: {total.toFixed(2)}</h1>

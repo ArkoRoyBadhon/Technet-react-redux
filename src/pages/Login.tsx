@@ -7,7 +7,7 @@ import { LoginForm } from '@/components/LoginForm';
 export default function Login() {
   return (
     <>
-      <div className="container relative hidden h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="container relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <Link
           to="/signup"
           className={cn(
@@ -26,9 +26,7 @@ export default function Login() {
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            <Link to="/">
-              <img className="h-8" src={logo} alt="" />
-            </Link>
+            <img className="h-8" src={logo} alt="" />
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2"></blockquote>

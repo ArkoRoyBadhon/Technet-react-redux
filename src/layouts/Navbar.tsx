@@ -20,44 +20,49 @@ import { setUser } from '@/redux/features/user/userSlice';
 export default function Navbar() {
   const { user } = useAppSelector((state) => state.user);
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const handleLogOut = () => {
-    console.log("logout");
-    signOut(auth)
-    .then(()=> {
-      dispatch(setUser(null))
-    })
-  }
+    console.log('logout');
+    signOut(auth).then(() => {
+      dispatch(setUser(null));
+    });
+  };
 
   return (
     <nav className="w-full h-16 fixed top backdrop-blur-lg z-10">
       <div className="h-full w-full bg-white/60">
-        <div className="flex items-center justify-between w-full md:max-w-7xl h-full mx-auto ">
+        <div className="flex items-center h-full mx-auto ">
           <div>
-            <img className="h-8" src={logo} alt="log" />
+            <img className="h-5 md:h-8" src={logo} alt="log" />
           </div>
-          <div>
+          <div className="mx-5">
             <ul className="flex items-center">
               <li>
-                <Button variant="link" asChild>
-                  <Link to="/">Home</Link>
-                </Button>
+                <div className="mr-2">
+                  <Link className="text-[14px] md:text-[16px]" to="/">
+                    Home
+                  </Link>
+                </div>
               </li>
               <li>
-                <Button variant="link" asChild>
-                  <Link to="/products">Products</Link>
-                </Button>
+                <div className="mr-2">
+                  <Link className="text-[14px] md:text-[16px]" to="/products">
+                    Products
+                  </Link>
+                </div>
               </li>
               <li>
-                <Button variant="link" asChild>
-                  <Link to="/checkout">Checkout</Link>
-                </Button>
+                <div className="mr-2">
+                  <Link className="text-[14px] md:text-[16px]" to="/checkout">
+                    Checkout
+                  </Link>
+                </div>
               </li>
               <li>
-                <Button variant="ghost">
+                <div className="hidden md:block">
                   <HiOutlineSearch size="25" />
-                </Button>
+                </div>
               </li>
               <li>
                 <Cart />
@@ -92,9 +97,12 @@ export default function Navbar() {
                     )}
                     {user.email && (
                       <>
-                          <DropdownMenuItem onClick={handleLogOut} className="cursor-pointer">
-                            Logout
-                          </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={handleLogOut}
+                          className="cursor-pointer"
+                        >
+                          Logout
+                        </DropdownMenuItem>
                       </>
                     )}
                   </DropdownMenuContent>
